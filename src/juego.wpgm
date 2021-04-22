@@ -2,7 +2,7 @@ import wollok.game.*
 import pepita.*
 
 program juego {
-	game.title("Juego Base")
+	game.title("Bueen dia grupo")
 	game.addVisual(pepita)
 	game.start()
 }
