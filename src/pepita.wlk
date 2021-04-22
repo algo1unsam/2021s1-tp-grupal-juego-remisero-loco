@@ -9,6 +9,10 @@ object pepita {
 	method image() {
 		return "pepita.png"
 	}
+	
+	method prueba() {
+		return "hola"
+	}
 
 }
 
