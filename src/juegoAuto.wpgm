@@ -5,15 +5,15 @@ import extras.*
 import wollok.game.*
 
 program PepitaGame {
-	game.title("Pepita")
-	game.height(18)
-	game.width(12)
-	game.boardGround("fondo2.jpg")
+	game.title("El remisero loco")
+	game.height(10)
+	game.width(8)
+	
+	game.boardGround("background.jpg")
 
-	tutorial3.iniciar()
+	mainGame.iniciar()
 
-	game.showAttributes(pepita) //Debug
-	//prueba
+	game.showAttributes(autoRojo) //Debug
 
 	game.start()
 }

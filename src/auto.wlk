@@ -1,54 +1,23 @@
 import extras.*
 import wollok.game.*
-
-object pepita {
-
-	var property energia = 100
-	var property position = game.origin()
-
+	
+object autoRojo{
+	var gasolina = 100
+	var position = game.at(0,0)
+	
 	method image() {
-		return if (self.estaEnElNido()) "pepita-grande.png" 
-			   else if (self.atrapadaPorSilvestre()) "pepita-gris.png"
-			   else if (self.estaCansada()) "pepita-gris.png"
-			   else "pepita.png"
+		return  "autoRojo1.png"
 	}
+	method estaEnElBorde() = self.position().x()== 0.0
 	
-	method come(comida) {
-		energia = energia + comida.energiaQueOtorga()
-	}
-
-	method vola(kms) {
-		energia = energia - kms * 9
-	}
-
-	method irA(nuevaPosicion) {
-		if (self.estaCansada()==false) {	
-			self.vola(position.distance(nuevaPosicion))
-			position = nuevaPosicion
-		}
-	}
-
-	method estaCansada() {
-		return energia <= 0
-	}
-
-	method estaEnElNido() {
-		return position == nido.position()
-	}
+	method estaEnElBorde2() = self.position().x()== 6
 	
-	method atrapadaPorSilvestre() {
-		return position == silvestre.position()
-	}
+	method position() = position
 	
-	method caer() {
-		if (not self.estaEnElSuelo()) {
-			position = position.down(1)
-		}
-	}
-	method estaEnElSuelo() {
-		return position.y() == 0
-	}
-	
-	
+	method moverA(nuevoLugar){
+		
+	 position = nuevoLugar
+	 
+	 }
 }
 
