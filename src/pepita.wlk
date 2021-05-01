@@ -15,4 +15,6 @@ object pepita {
 	}
 
 }
-
+object daniel {
+		method miNombre() = "daniel"
+}
