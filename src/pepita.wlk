@@ -13,6 +13,10 @@ object pepita {
 	method prueba() {
 		return "hola"
 	}
+	
+	method franco() {
+		return "franco"
+	}
 
 }
 object daniel {
