@@ -1,0 +1,18 @@
+import auto.*
+import obstaculos.*
+import config.*
+import extras.*
+import wollok.game.*
+
+program PepitaGame {
+	game.title("Pepita")
+	game.height(18)
+	game.width(12)
+	game.boardGround("fondo2.jpg")
+
+	tutorial3.iniciar()
+
+	game.showAttributes(pepita) //Debug
+
+	game.start()
+}
