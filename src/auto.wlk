@@ -3,7 +3,7 @@ import wollok.game.*
 	
 object autoRojo{
 	var gasolina = 100
-	var position = game.at(0,0)
+	var position = game.at(0,1)
 	
 	method image() {
 		return  "autoRojo1.png"
