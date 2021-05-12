@@ -1,4 +1,5 @@
 import wollok.game.*
+import extras.*
 
 class Obstaculos {
 	var position
@@ -16,6 +17,7 @@ class Obstaculos {
 	}
 	method chocoCon(autoRojo){
 		game.clear()
+		game.addVisual(pantallaDeGameOver)
 		game.schedule(3000, {game.stop()})
 		//game.whenKeyPressedDo(keyboard.x(), {game.stop()})
 		//game.whenKeyPressedDo(keyboard.z(), {game.start()})
