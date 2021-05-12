@@ -3,19 +3,13 @@ import obstaculos.*
 import extras.*
 import wollok.game.*
 
-object tutorial1 {
-
-	method iniciar() {
-		game.addVisualCharacter(autoRojo)
-	}
-
-}
-
 object mainGame {
 
 	method iniciar() {
 		game.addVisual(autoRojo)
+		game.addVisual(obstaculo)
 		config.configurarTeclas()
+		config.configurarCaida()
 	}
 
 }
@@ -33,5 +27,9 @@ object config {
 		
 		
 	}
-
+	method configurarCaida(){
+		
+		game.onTick(200, "caida", {obstaculo.bajar() })
+	}
 }
+

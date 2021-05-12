@@ -4,7 +4,7 @@ import config.*
 import extras.*
 import wollok.game.*
 
-program PepitaGame {
+program remiseroLocoGame {
 	game.title("El remisero loco")
 	game.height(10)
 	game.width(8)
@@ -14,6 +14,6 @@ program PepitaGame {
 	mainGame.iniciar()
 
 	game.showAttributes(autoRojo) //Debug
-
+	game.showAttributes(obstaculo)
 	game.start()
 }
