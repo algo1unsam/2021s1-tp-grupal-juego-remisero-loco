@@ -7,9 +7,11 @@ object mainGame {
 
 	method iniciar() {
 		game.addVisual(autoRojo)
-		game.addVisual(obstaculo)
+		game.addVisual(obstaculo1)
+		game.addVisual(obstaculo2)
 		config.configurarTeclas()
 		config.configurarCaida()
+		config.configurarColiciones()
 	}
 
 }
@@ -29,7 +31,13 @@ object config {
 	}
 	method configurarCaida(){
 		
-		game.onTick(200, "caida", {obstaculo.bajar() })
+		game.onTick(100, "caida", {obstaculo1.bajar() })
+		game.onTick(100, "caida", {obstaculo2.bajar() })
+	}
+	
+	method configurarColiciones(){
+		
+		game.onCollideDo(autoRojo, {otroAuto => otroAuto.chocoCon(autoRojo)})
 	}
 }
 
