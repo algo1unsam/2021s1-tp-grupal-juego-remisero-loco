@@ -13,8 +13,6 @@ program remiseroLocoGame {
 
 	mainGame.iniciar()
 
-	game.showAttributes(autoRojo) //Debug
-	game.showAttributes(obstaculo1)
-	game.showAttributes(obstaculo2)
+	game.showAttributes(autoRojo)//Debug
 	game.start()
 }
