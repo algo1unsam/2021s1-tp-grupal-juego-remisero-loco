@@ -59,7 +59,6 @@ object mainGame {
 			config.configurarTeclas()
 			config.configurarCaida()
 			config.configurarColiciones()
-			config.resetearTimer()
 			config.resetearPuntos()
 
 			}
@@ -83,15 +82,19 @@ object config {
 	}
 	method configurarCaida(){
 		
-		
-		game.onTick(timer, "caida", {obstaculo1.bajar() })
-		game.onTick(timer, "caida", {obstaculo2.bajar() })
-		
-		game.onTick(5000,"masRapido",{timer = timer * 0.7})
-		
-	}
-	method resetearTimer(){
 		timer = 100
+		
+		game.onTick(timer, "caida1", {obstaculo1.bajar() })
+		game.onTick(timer, "caida2", {obstaculo2.bajar() })
+		
+		game.onTick(4000,"masRapido",{timer = (timer * 0.8)
+		game.removeTickEvent("caida1")
+		game.removeTickEvent("caida2")
+		game.onTick(timer, "caida1", {obstaculo1.bajar() })
+		game.onTick(timer, "caida2", {obstaculo2.bajar() })
+			
+		})
+		
 	}
 	
 	method configurarColiciones(){
