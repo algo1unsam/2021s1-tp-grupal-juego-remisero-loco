@@ -2,8 +2,10 @@ import extras.*
 import wollok.game.*
 	
 object autoRojo{
+	var puntos = 0
 	var gasolina = 100
 	var position = game.at(0,1)
+	var gameOver = false
 	
 	method image() {
 		return  "autoRojo1.png"
@@ -18,6 +20,14 @@ object autoRojo{
 		
 	 position = nuevoLugar
 	 
+	 }
+	 method ganarPuntos(cantidad){
+	 	puntos = puntos + cantidad
+	 }
+	 method puntos() = puntos
+	 
+	 method resetearPuntos(){
+	 	puntos = 0
 	 }
 }
 

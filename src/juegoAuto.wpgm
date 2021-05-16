@@ -5,14 +5,8 @@ import extras.*
 import wollok.game.*
 
 program remiseroLocoGame {
-	game.title("El remisero loco")
-	game.height(10)
-	game.width(8)
-	
-	game.boardGround("background.jpg")
 
 	mainGame.iniciar()
-
-	game.showAttributes(autoRojo)//Debug
+	mainGame.pressEnter()
 	game.start()
 }
