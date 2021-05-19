@@ -1,11 +1,10 @@
 import wollok.game.*
 object randomizer {
+	
+	const calles =[0,2,4,8]
 		
 	method position() {
-		return 	game.at( 
-					(0 .. game.width() - 1 ).anyOne(),
-					(0..  game.height() - 1).anyOne()
-		) 
+		return 	game.at(calles.anyOne(),8) 
 	}
 	
 	method emptyPosition() {

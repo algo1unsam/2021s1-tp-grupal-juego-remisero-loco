@@ -16,16 +16,19 @@ object mainGame {
 		game.addVisual(pantallaDeInicio)
 		
 	}
-	
-	method arrancar() {
-		if(game.hasVisual(pantallaDeInicio) ){
-			game.removeVisual(pantallaDeInicio)
-			game.addVisual(autoRojo)
+	method data(){
+			game.addVisual(jugador)
 			game.addVisual(obstaculo1)
 			game.addVisual(obstaculo2)
 			config.configurarTeclas()
 			config.configurarCaida()
 			config.configurarColiciones()
+	}
+	
+	method arrancar() {
+		if(game.hasVisual(pantallaDeInicio) ){
+			game.removeVisual(pantallaDeInicio)
+		self.data()
 			//config.configPuntos()
 		}
 		
@@ -35,12 +38,12 @@ object mainGame {
 		keyboard.enter().onPressDo({self.arrancar()})
 	}
 	method gameOver(){
-		game.removeVisual(autoRojo)
+		game.removeVisual(jugador)
 		game.removeVisual(obstaculo1)
 		game.removeVisual(obstaculo2)
 		game.addVisual(pantallaDeGameOver)
 		game.addVisual(puntaje)
-		game.say(puntaje,"Felicidades, tu puntaje fue :" + autoRojo.puntos())
+		game.say(puntaje,"Felicidades, tu puntaje fue :" + jugador.puntos())
 		self.seguirJugandoONo()
 		
 	}
@@ -53,12 +56,7 @@ object mainGame {
 			game.removeVisual(pantallaDeGameOver)
 			game.removeVisual(puntaje)
 			game.clear()
-			game.addVisual(autoRojo)
-			game.addVisual(obstaculo1)
-			game.addVisual(obstaculo2)
-			config.configurarTeclas()
-			config.configurarCaida()
-			config.configurarColiciones()
+			self.data()
 			config.resetearPuntos()
 
 			}
@@ -73,11 +71,11 @@ object config {
 	method configurarTeclas() {
 		
 				
-		keyboard.left().onPressDo({ if ( not autoRojo.estaEnElBorde()){ autoRojo.moverA(autoRojo.position().left(2))}})
+		keyboard.left().onPressDo({ if ( not jugador.estaEnElBorde()){ jugador.moverA(jugador.position().left(2))}})
 		
 		
 		
-		keyboard.right().onPressDo({ if (not autoRojo.estaEnElBorde2() ){ autoRojo.moverA(autoRojo.position().right(2))}})
+		keyboard.right().onPressDo({ if (not jugador.estaEnElBorde2() ){ jugador.moverA(jugador.position().right(2))}})
 		
 	}
 	method configurarCaida(){
@@ -99,11 +97,11 @@ object config {
 	
 	method configurarColiciones(){
 		
-		game.onCollideDo(autoRojo, {otroAuto => otroAuto.chocoCon(autoRojo)})
+		game.onCollideDo(jugador, {algo => algo.chocoCon(jugador)})
 	}
 	method resetearPuntos(){
 		
-		autoRojo.resetearPuntos()
+		jugador.resetearPuntos()
 	}
 	
 }
