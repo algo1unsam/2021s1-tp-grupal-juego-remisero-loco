@@ -3,8 +3,8 @@ import obstaculos.*
 import extras.*
 import wollok.game.*
 
-const obstaculo1 = new ObstaculoIzq(image = "autoRojo1.png",position =game.at(0,8))
-const obstaculo2 = new ObstaculoDer(image = "autoRojo1.png",position =game.at(4,8))
+const obstaculo1 = new ObstaculoIzq(image = "piedra.png",position =game.at(0,8))
+const obstaculo2 = new ObstaculoDer(image = "piedra.png",position =game.at(4,8))
 object mainGame {
 
 
