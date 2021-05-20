@@ -20,6 +20,8 @@ object mainGame {
 	}
 	method data(){
 			game.addVisual(jugador)
+			obstaculo1.position(game.at(0,12))
+			obstaculo2.position(game.at(4,12))
 			game.addVisual(obstaculo1)
 			game.addVisual(obstaculo2)
 			config.configurarTeclas()

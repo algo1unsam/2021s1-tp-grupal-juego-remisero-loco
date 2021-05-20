@@ -12,6 +12,10 @@ class Obstaculos {
 	method position() = position
 	
 	method tocoElSuelo() = position.y() == 0
+	
+	method position(unaPosition){
+		position = unaPosition
+	}
 
 // este metodo sobra(?)	
 	method bajar(){
