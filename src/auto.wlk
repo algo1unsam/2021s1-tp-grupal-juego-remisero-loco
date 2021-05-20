@@ -30,7 +30,7 @@ object jugador{
 
 	}
 	  
-	method estaEnElBorde() = self.position().x()<= 0.0
+	method estaEnElBorde() = self.position().x()<= 1
 	
 	method estaEnElBorde2() = self.position().x()>= 6
 	

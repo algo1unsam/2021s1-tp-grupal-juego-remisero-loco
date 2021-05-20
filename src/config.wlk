@@ -3,8 +3,8 @@ import obstaculos.*
 import extras.*
 import wollok.game.*
 
-const obstaculo1 = new ObstaculoIzq(image = "bache.png",position =game.at(0,15))
-const obstaculo2 = new ObstaculoDer(image = "bache.png",position =game.at(4,15))
+const obstaculo1 = new ObstaculoIzq(image = "bache.png",position =game.at(0,12))
+const obstaculo2 = new ObstaculoDer(image = "bache.png",position =game.at(4,12))
 const musica = game.sound("mainMusic.wav")
 object mainGame {
 
