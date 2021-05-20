@@ -21,6 +21,7 @@ class Obstaculos {
 	}
 	method chocoCon(jugador){
 		mainGame.gameOver()
+		game.sound("lose.wav").play()
 		
 }
 

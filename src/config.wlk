@@ -5,6 +5,7 @@ import wollok.game.*
 
 const obstaculo1 = new ObstaculoIzq(image = "bache.png",position =game.at(0,15))
 const obstaculo2 = new ObstaculoDer(image = "bache.png",position =game.at(4,15))
+const musica = game.sound("mainMusic.wav")
 object mainGame {
 
 
@@ -14,6 +15,7 @@ object mainGame {
 		game.width(8)
 		game.boardGround("background.jpg")
 		game.addVisual(pantallaDeInicio)
+		game.schedule(100, { musica.play()})
 		
 	}
 	method data(){
@@ -28,6 +30,7 @@ object mainGame {
 	method arrancar() {
 		if(game.hasVisual(pantallaDeInicio) ){
 			game.removeVisual(pantallaDeInicio)
+		game.sound("next.wav").play()
 		self.data()
 			//config.configPuntos()
 		}
@@ -45,6 +48,7 @@ object mainGame {
 		game.addVisual(puntaje)
 		game.say(puntaje,"Felicidades, tu puntaje fue :" + jugador.puntos())
 		self.seguirJugandoONo()
+		self.pausarMusica()
 		
 	}
 	method seguirJugandoONo(){
@@ -58,10 +62,19 @@ object mainGame {
 			game.clear()
 			self.data()
 			config.resetearPuntos()
-
+			self.reanudarMusica()
+			game.sound("next.wav").play()
 			}
 	}
 
+	method pausarMusica() {
+		musica.pause()
+	}
+
+	method reanudarMusica() {
+		musica.resume()
+	}
+	
 }
 
 object config {
