@@ -16,7 +16,7 @@ object pantallaDeInicio{
 	method image() = "inicio.png"
 }
 object puntaje{
-	method position() = game.at(6,7)
+	method position() = game.at(6,10)
 	
 	method image() = "puntaje.png"
 }
