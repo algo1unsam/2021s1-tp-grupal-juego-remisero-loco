@@ -6,9 +6,12 @@ object jugador{
 	var puntos = 0
 	var property position = game.at(0,1)	
 	const doblar = [1,1.2,1.4,1.6,1.8,		//0.5 seg de 'animacion'
-					   3,3.2,3.4,3.6,3.8,	// el problema es q si apretas 2 veces seguidas (rapido) IZQ, se descarrila
-					   5,5.2,5.4,5.6,5.8,
-					   7,7.2,7.4,7.6,7.8]
+					2.2,2.4,2.6,
+					3,3.2,3.4,3.6,3.8,	// el problema es q si apretas 2 veces seguidas (rapido) IZQ, se descarrila
+					4.2,4.4,4.6,
+					5,5.2,5.4,5.6,5.8,
+					6.2,6.4,6.6,
+					7,7.2,7.4,7.6,7.8]
 	var derecha = false
 	var izquierda = false
 	
