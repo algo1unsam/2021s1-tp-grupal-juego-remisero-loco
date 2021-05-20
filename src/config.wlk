@@ -3,14 +3,14 @@ import obstaculos.*
 import extras.*
 import wollok.game.*
 
-const obstaculo1 = new ObstaculoIzq(image = "piedra.png",position =game.at(0,8))
-const obstaculo2 = new ObstaculoDer(image = "piedra.png",position =game.at(4,8))
+const obstaculo1 = new ObstaculoIzq(image = "piedra.png",position =game.at(0,15))
+const obstaculo2 = new ObstaculoDer(image = "piedra.png",position =game.at(4,15))
 object mainGame {
 
 
 	method iniciar(){
 		game.title("El remisero loco")
-		game.height(10)
+		game.height(14)
 		game.width(8)
 		game.boardGround("background.jpg")
 		game.addVisual(pantallaDeInicio)
@@ -67,15 +67,25 @@ object mainGame {
 object config {
 	
 	var timer = 100
-
+	
 	method configurarTeclas() {
 		
 				
-		keyboard.left().onPressDo({ if ( not jugador.estaEnElBorde()){ jugador.moverA(jugador.position().left(2))}})
+		keyboard.left().onPressDo({ 
+			if ( not jugador.estaEnElBorde()){ 
+				//jugador.moverA(jugador.position().left(2))
+				jugador.moverA(jugador.position().left(1)) // muevo 1 y tengo que mandar otro en auto
+				jugador.izq()							// para q termnine de mover 1 mas
+			}
+	
+		})
 		
 		
 		
-		keyboard.right().onPressDo({ if (not jugador.estaEnElBorde2() ){ jugador.moverA(jugador.position().right(2))}})
+		keyboard.right().onPressDo({ if (not jugador.estaEnElBorde2() ){
+			jugador.moverA(jugador.position().right(1))
+			jugador.der()
+		}})
 		
 	}
 	method configurarCaida(){
