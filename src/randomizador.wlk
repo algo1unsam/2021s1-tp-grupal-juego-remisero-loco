@@ -4,7 +4,7 @@ object randomizer {
 	const calles =[0,2,4,8]
 		
 	method position() {
-		return 	game.at(calles.anyOne(),8) 
+		return 	game.at(calles.anyOne(),15) 
 	}
 	
 	method emptyPosition() {

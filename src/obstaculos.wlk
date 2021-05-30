@@ -18,39 +18,42 @@ class Obstaculos {
 	}
 
 // este metodo sobra(?)	
+/*
 	method bajar(){
 		if( not self.tocoElSuelo() ){
 			position = position.down(1)
 		}else position = game.at((new Range(start = 0, end = 2,step = 2 ).anyOne()),15)
-	}
-	method chocoCon(jugador){
+	}*/
+	
+	method chocoCon(remisero){
+		game.sound('Car_Explodes.wav')
 		mainGame.gameOver()
 		game.sound("lose.wav").play()
 		
-}
+	}
 
 }
 
-class ObstaculoDer inherits Obstaculos {
+class ObstaculoIzq inherits Obstaculos {
 	
-	
-	override method bajar(){
+	 method bajar(){
 		if( not self.tocoElSuelo() ){
 			position = position.down(1)
-		}else {position =game.at((new Range(start = 4, end = 6,step = 2 ).anyOne()),15)
+		}else {position =game.at((new Range(start = 0, end = 2,step = 2 ).anyOne()),15)
 			jugador.ganarPuntos(20)
 		}
 	}
 
 }
-class ObstaculoIzq inherits Obstaculos {
+
+class AutoEnContraRapido inherits Obstaculos {
 	
-	override method bajar(){
+	method bajar(){
 		if( not self.tocoElSuelo() ){
-			position = position.down(1)
-		}else {position =game.at((new Range(start = 0, end = 2,step = 2 ).anyOne()),15)
+		position = position.down(1)
+		}else {position =game.at((new Range(start = 4, end = 6,step = 2 ).anyOne()),15)
 			jugador.ganarPuntos(20)
-	}
+		}
 	
 	}
 

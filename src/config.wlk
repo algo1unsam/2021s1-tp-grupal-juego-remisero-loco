@@ -4,8 +4,9 @@ import extras.*
 import wollok.game.*
 
 const obstaculo1 = new ObstaculoIzq(image = "bache.png",position =game.at(0,12))
-const obstaculo2 = new ObstaculoDer(image = "bache.png",position =game.at(4,12))
+const obstaculo2 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(4,12))
 const musica = game.sound("mainMusic.wav")
+
 object mainGame {
 
 
@@ -88,24 +89,25 @@ object config {
 				
 		keyboard.left().onPressDo({ 
 			if ( not jugador.estaEnElBorde()){ 
-				//jugador.moverA(jugador.position().left(2))
 				jugador.moverA(jugador.position().left(1)) // muevo 1 y tengo que mandar otro en auto
 				jugador.izq()							// para q termnine de mover 1 mas
+				
 			}
 	
 		})
 		
 		
 		
-		keyboard.right().onPressDo({ if (not jugador.estaEnElBorde2() ){
-			jugador.moverA(jugador.position().right(1))
-			jugador.der()
+		keyboard.right().onPressDo({
+			if (not jugador.estaEnElBorde2() ){
+				jugador.moverA(jugador.position().right(1))
+				jugador.der()
 		}})
 		
 	}
 	method configurarCaida(){
 		
-		timer = 100
+		timer = 90
 		
 		game.onTick(timer, "caida1", {obstaculo1.bajar() })
 		game.onTick(timer, "caida2", {obstaculo2.bajar() })
