@@ -1,3 +1,4 @@
+// no funca
 import wollok.game.*
 object randomizer {
 	
