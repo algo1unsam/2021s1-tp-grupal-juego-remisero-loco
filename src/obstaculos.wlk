@@ -59,6 +59,7 @@ class AutoEnContraRapido inherits Obstaculos {
 	}
 
 }
+
 class AutoEnContraLento inherits Obstaculos {
 	
 	method bajar(){
@@ -67,7 +68,6 @@ class AutoEnContraLento inherits Obstaculos {
 		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),20)
 			jugador.ganarPuntos(20)
 		}
-	
 	}
 
 }

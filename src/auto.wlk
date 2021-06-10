@@ -32,10 +32,9 @@ object jugador{
 	method position() = position
 	
 	method moverA(nuevoLugar){
-		
-	 position = nuevoLugar
-	 
-	 }
+		position = nuevoLugar
+	}
+	
 	 method ganarPuntos(cantidad){
 	 	puntos = puntos + cantidad
 	 }
@@ -63,5 +62,32 @@ object jugador{
 		derecha = false
 	}
 }
+// hago clase fantasma?
+object autoFantasma{
+	var property position = game.at(0,2)
+	
+	method image() = 'autoFantasma.png'
+	
+	method estaEnElBorde() = self.position().x()<= 1
+	
+	method estaEnElBorde2() = self.position().x()>= 6
+	
+	method moverA(nuevoLugar){
+		position = nuevoLugar
+	 }
+}
 
+object autoFantasma2{
+	var property position = game.at(0,0)
+	
+	method image() = 'autoFantasma.png'
+	
+	method estaEnElBorde() = self.position().x()<= 1
+	
+	method estaEnElBorde2() = self.position().x()>= 6
+	
+	method moverA(nuevoLugar){
+		position = nuevoLugar
+	 }
+}
 

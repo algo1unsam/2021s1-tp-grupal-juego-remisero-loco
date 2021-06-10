@@ -25,7 +25,10 @@ object mainGame {
 		
 	}
 	method data(){
+			game.addVisual(autoFantasma2) // ver si hago clase fantsma
+			game.addVisual(autoFantasma)
 			game.addVisual(jugador)
+			
 			obstaculo1.position(game.at(0,27))
 			obstaculo2.position(game.at(4,15))
 			obstaculo3.position(game.at(2,23))
@@ -54,6 +57,8 @@ object mainGame {
 	}
 	method gameOver(){
 		game.removeVisual(jugador)
+		game.removeVisual(autoFantasma)
+		game.removeVisual(autoFantasma2) // ojo
 		game.removeVisual(obstaculo1)
 		game.removeVisual(obstaculo2)
 		game.removeVisual(obstaculo3)
@@ -96,8 +101,7 @@ object config {
 	var timer = 100
 	
 	method configurarTeclas() {
-		
-				
+						
 		keyboard.left().onPressDo({ 
 			if ( not jugador.estaEnElBorde()){ 
 				jugador.moverA(jugador.position().left(1)) // muevo 1 y tengo que mandar otro en auto
@@ -107,12 +111,33 @@ object config {
 	
 		})
 		
-		
-		
 		keyboard.right().onPressDo({
 			if (not jugador.estaEnElBorde2() ){
 				jugador.moverA(jugador.position().right(1))
 				jugador.der()
+		}})
+	
+	//-------------------------------------------------------------	
+		keyboard.left().onPressDo({ 
+			if ( not autoFantasma.estaEnElBorde()){ 
+				autoFantasma.moverA(autoFantasma.position().left(2))
+	
+			}
+		})
+		keyboard.right().onPressDo({
+			if (not autoFantasma.estaEnElBorde2() ){
+				autoFantasma.moverA(autoFantasma.position().right(2))
+		}})
+	//----------------------------------------------------------------	
+		keyboard.left().onPressDo({ 
+			if ( not autoFantasma2.estaEnElBorde()){ 
+				autoFantasma2.moverA(autoFantasma2.position().left(2))
+	
+			}
+		})
+		keyboard.right().onPressDo({
+			if (not autoFantasma2.estaEnElBorde2() ){
+				autoFantasma2.moverA(autoFantasma2.position().right(2))
 		}})
 		
 	}
@@ -144,8 +169,10 @@ object config {
 	
 	method configurarColiciones(){
 		
+		game.onCollideDo(autoFantasma, {algo => algo.chocoCon(jugador)})
 		game.onCollideDo(jugador, {algo => algo.chocoCon(jugador)})
-		// jugador.position().y()+1
+		game.onCollideDo(autoFantasma2, {algo => algo.chocoCon(jugador)})	// ojo
+
 	}
 	method resetearPuntos(){
 		
