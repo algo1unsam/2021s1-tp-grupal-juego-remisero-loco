@@ -7,10 +7,9 @@ const obstaculo1 = new Bache(image = "bache.png",position =game.at(0,12))
 const obstaculo2 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(4,12))
 const obstaculo3 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(2,12))
 const obstaculo4 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(4,12))
-const musica = game.sound("mainMusic.wav")
 
 object mainGame {
-
+	var jugarOtra = false
 
 	method iniciar(){
 		game.title("El remisero loco")
@@ -18,10 +17,9 @@ object mainGame {
 		game.width(8)
 		game.boardGround("background.jpg")
 		game.addVisual(pantallaDeInicio)
+		if (not jugarOtra)
 		game.schedule(100, {
-			musica.volume(0.5) 
-			musica.play()
-		})
+			musica.play()})
 		
 	}
 	method data(){
@@ -56,6 +54,7 @@ object mainGame {
 		keyboard.enter().onPressDo({self.arrancar()})
 	}
 	method gameOver(){
+		jugarOtra = true
 		game.removeVisual(jugador)
 		game.removeVisual(autoFantasma)
 		game.removeVisual(autoFantasma2) // ojo
@@ -67,7 +66,7 @@ object mainGame {
 		game.addVisual(puntaje)
 		game.say(puntaje,"Felicidades, tu puntaje fue :" + jugador.puntos())
 		self.seguirJugandoONo()
-		self.pausarMusica()
+		musica.pausarMusica()
 		
 	}
 	method seguirJugandoONo(){
@@ -83,19 +82,26 @@ object mainGame {
 			self.iniciar()
 			self.pressEnter()
 			config.resetearPuntos()
-			self.reanudarMusica()
-			game.sound("next.wav").play()
+			musica.reanudarMusica()
 			}
 	}
 
-	method pausarMusica() {
-		musica.pause()
-	}
+}
+
+object musica{
+	const cancion = game.sound("mainMusic.wav")
+
+	method play() {
+		 cancion.volume(0.5)
+		 cancion.play()
+		 }
 
 	method reanudarMusica() {
-		musica.resume()
+		cancion.resume()
 	}
-	
+	method pausarMusica() {
+		cancion.pause()
+	}
 }
 
 object config {
@@ -119,7 +125,7 @@ object config {
 				jugador.der()
 		}})
 	
-	//-------------------------------------------------------------	
+	//------------------------auto fantasma-------------------------------	
 		keyboard.left().onPressDo({ 
 			if ( not autoFantasma.estaEnElBorde()){ 
 				autoFantasma.moverA(autoFantasma.position().left(2))
@@ -130,7 +136,7 @@ object config {
 			if (not autoFantasma.estaEnElBorde2() ){
 				autoFantasma.moverA(autoFantasma.position().right(2))
 		}})
-	//----------------------------------------------------------------	
+	//------------------------segundo coche fantasma------------------------
 		keyboard.left().onPressDo({ 
 			if ( not autoFantasma2.estaEnElBorde()){ 
 				autoFantasma2.moverA(autoFantasma2.position().left(2))
@@ -143,11 +149,12 @@ object config {
 		}})
 		
 	}
+	
 	method configurarCaida(){
 		
 		timer = 100
 		
-		// ... 'lineas'{lineas.}
+		// el temas de las lineas es que en un punto descoordinan
 		game.onTick(timer, "caida1", {obstaculo1.bajar() })
 		game.onTick(timer, "caida2", {obstaculo2.bajar() })
 		game.onTick(timer, "caida3", {obstaculo3.bajar() })
@@ -182,4 +189,3 @@ object config {
 	}
 	
 }
-
