@@ -72,10 +72,10 @@ object jugador{	// clase auto, tener 3 colores
 	}
 }
 // -------------- color de los autos -----------------
-object rojo{
-	method imagen() = "autoRojo1.png"
-	method doblarIzq() = "autoRojo_Izq.png"
-	method doblarDer() = "autoRojo_Der.png"
+object gris{
+	method imagen() = "autoGris.png"
+	method doblarIzq() = "autoGris_Izq.png"
+	method doblarDer() = "autoGris_Der.png"
 }
 
 object naranja{

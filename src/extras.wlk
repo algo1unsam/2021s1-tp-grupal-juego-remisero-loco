@@ -23,11 +23,11 @@ object puntaje{
 }
 
 object recuadro{
-	var property position = game.at(1,7.5)	// aca esta mi error
+	var property position = game.at(0.95,7.5)	// aca esta mi error
 
 	method image() = 'rectangulo.png'
 	
-	method estaEnElBorde() = self.position().x()<= 1
+	method estaEnElBorde() = self.position().x()<= 0.95
 	
 	method estaEnElBorde2() = self.position().x()>= 5
 	
@@ -38,14 +38,14 @@ object recuadro{
 	method eleccion(){
 		if(game.hasVisual(pantallaDeInicio) ){
 
-			if (self.position() == game.at(1,7.5)){
-				jugador.eleccionAuto(rojo)
-				mainGame.arrancar()}
-			if (self.position() == game.at(3,7.5)){
+			if (self.position() == game.at(0.95,7.5)){
 				jugador.eleccionAuto(naranja)
 				mainGame.arrancar()}
-			if (self.position() == game.at(5,7.5)){
+			if (self.position() == game.at(3.95,7.5)){
 				jugador.eleccionAuto(verde)
+				mainGame.arrancar()}
+			if (self.position() == game.at(6.95,7.5)){
+				jugador.eleccionAuto(gris)
 				mainGame.arrancar()
 			} //else {self.error('no funca')}
 		}	//mainGame.arrancar()

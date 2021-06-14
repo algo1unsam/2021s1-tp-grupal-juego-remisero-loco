@@ -162,13 +162,13 @@ object config {
 	// ---------------------- recuadro del menu ------------------------------
 		keyboard.left().onPressDo({ 
 			if ( not recuadro.estaEnElBorde()){ 
-				recuadro.moverA(recuadro.position().left(2))
+				recuadro.moverA(recuadro.position().left(3))
 	
 			}
 		})
 		keyboard.right().onPressDo({
 			if (not recuadro.estaEnElBorde2() ){
-				recuadro.moverA(recuadro.position().right(2))
+				recuadro.moverA(recuadro.position().right(3))
 		}})
 	}
 	
