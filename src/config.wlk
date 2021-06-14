@@ -19,6 +19,7 @@ object mainGame {
 		game.addVisual(pantallaDeInicio)
 		game.addVisual(recuadro)	// agrego
 		config.configurarTeclas()
+		//keyboard.escape().onPressDo({game.stop()}) Como es el escape?
 		if (not jugarOtra){
 			game.schedule(100, {
 				musica.play()})

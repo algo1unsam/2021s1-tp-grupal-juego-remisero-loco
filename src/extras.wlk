@@ -38,13 +38,13 @@ object recuadro{
 	method eleccion(){
 		if(game.hasVisual(pantallaDeInicio) ){
 
-			if (self.position() == game.at(1,9)){
+			if (self.position() == game.at(1,7.5)){
 				jugador.eleccionAuto(rojo)
 				mainGame.arrancar()}
-			if (self.position() == game.at(3,9)){
+			if (self.position() == game.at(3,7.5)){
 				jugador.eleccionAuto(naranja)
 				mainGame.arrancar()}
-			if (self.position() == game.at(5,9)){
+			if (self.position() == game.at(5,7.5)){
 				jugador.eleccionAuto(verde)
 				mainGame.arrancar()
 			} //else {self.error('no funca')}
