@@ -44,7 +44,7 @@ object jugador{	// clase auto, tener 3 colores
 		position = nuevoLugar       					// movimiento del jugador 
 	}
 	
-	 method ganarPuntos(cantidad){
+	 method ganarPuntos(cantidad){						//contador de puntos
 	 	puntos = puntos + cantidad
 	 }
 	 method puntos() = puntos

@@ -5,20 +5,20 @@ import config.*
 
 object pantallaDeGameOver{
 
-	method position() = game.at(0,0)
+	method position() = game.at(0,0)		// pantalla del menu de game over
 
 	method image() = "gameOver.png"
 }
 
 object pantallaDeInicio{
 	
-	method position() = game.at(0,0)
+	method position() = game.at(0,0)		// pantalla del menu de inicio
 	
 	method image() = "menuInicial2.jpg"
 }
 object puntaje{
 	method position() = game.at(6,10)
-	
+													//un objeto que de dice tu puntuacion final al perder
 	method image() = "puntaje.png"
 }
 

@@ -16,7 +16,7 @@ class Obstaculos {
 		position = unaPosition
 	}
 
-	method chocoCon(remisero){
+	method chocoCon(remisero){			//	coliciones con el jugador
 		game.sound('Car_Explodes.wav')
 		mainGame.gameOver()
 		game.sound("lose.wav").play()
