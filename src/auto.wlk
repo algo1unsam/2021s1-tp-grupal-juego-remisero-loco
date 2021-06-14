@@ -2,25 +2,34 @@ import extras.*
 import wollok.game.*
 import config.*
 	
-object jugador{
+object jugador{	// clase auto, tener 3 colores
 	var puntos = 0
 	var property position = game.at(0,1)	
-	const doblar = [0.5, 1, 1.5, 2.5, 3, 3.5, 4.5, 5, 5.5]
+	const doblar = [0.5, 1, 1.5, 2.5, 3, 3.5, 4.5, 5, 5.5]			
 					
 	var derecha = false
 	var izquierda = false
+	
+	var color
 
+	// var colorAuto
+	method eleccionAuto(tipo){
+		color = tipo	
+	}
+	
 	method image() {
 		if (izquierda and self.doblar()){		// si esta en la posicion de izq, pongo imagen doblando
 			self.moverA(position.left(0.5))
-			return "autoRojo_Izq.png"
+			return color.doblarIzq()
+			// return color.doblarIzq()
 			
-			 }if(derecha and self.doblar()){
-			 	self.moverA(position.right(0.5))
-				return "autoRojo_Der.png"
+		}if(derecha and self.doblar()){
+			self.moverA(position.right(0.5))
+			return color.doblarDer()
+				//return color.doblarDer()
 		}else{
 			self.nulo()
-			return "autoRojo1.png"
+			return color.imagen()
 		}
 
 	}
@@ -62,7 +71,26 @@ object jugador{
 		derecha = false
 	}
 }
-// hago clase fantasma?
+// -------------- color de los autos -----------------
+object rojo{
+	method imagen() = "autoRojo1.png"
+	method doblarIzq() = "autoRojo_Izq.png"
+	method doblarDer() = "autoRojo_Der.png"
+}
+
+object naranja{
+	method imagen() = "autoNaranja.png"
+	method doblarIzq() = "autoNaranja_Izq.png" //"autoAzul_Izq.png"
+	method doblarDer() = "autoNaranja_Der.png" //"autoAzul_Der.png"
+}
+
+object verde{
+	method imagen() = "autoVerde.png"
+	method doblarIzq() = "autoVerde_Izq.png" //"autoVerde_Izq.png"
+	method doblarDer() = "autoVerde_Der.png" //"autoVerde_Der.png"
+}
+
+// --------------------------------------------------
 object autoFantasma{
 	var property position = game.at(0,2)
 	

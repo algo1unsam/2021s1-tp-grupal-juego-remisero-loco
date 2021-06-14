@@ -2,7 +2,6 @@ import wollok.game.*
 import extras.*
 import auto.*
 import config.*
-import randomizador.*
 
 class Obstaculos {
 	var position
@@ -17,14 +16,6 @@ class Obstaculos {
 		position = unaPosition
 	}
 
-// este metodo sobra(?)	
-/*
-	method bajar(){
-		if( not self.tocoElSuelo() ){
-			position = position.down(1)
-		}else position = game.at((new Range(start = 0, end = 2,step = 2 ).anyOne()),15)
-	}*/
-	
 	method chocoCon(remisero){
 		game.sound('Car_Explodes.wav')
 		mainGame.gameOver()
@@ -51,7 +42,7 @@ class AutoEnContraRapido inherits Obstaculos {
 	
 	method bajar(){
 		if( not self.tocoElSuelo() ){
-		position = position.down(1)
+			position = position.down(1)
 		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),15)
 			jugador.ganarPuntos(20)
 		}
@@ -64,7 +55,7 @@ class AutoEnContraLento inherits Obstaculos {
 	
 	method bajar(){
 		if( not self.tocoElSuelo() ){
-		position = position.down(1)
+			position = position.down(1)
 		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),20)
 			jugador.ganarPuntos(20)
 		}

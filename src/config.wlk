@@ -17,12 +17,17 @@ object mainGame {
 		game.width(8)
 		game.boardGround("background.jpg")
 		game.addVisual(pantallaDeInicio)
-		if (not jugarOtra)
-		game.schedule(100, {
-			musica.play()})
+		game.addVisual(recuadro)	// agrego
+		config.configurarTeclas()
+		if (not jugarOtra){
+			game.schedule(100, {
+				musica.play()})
+		}
 		
 	}
+	
 	method data(){
+			game.removeVisual(recuadro)
 			game.addVisual(autoFantasma2) // ver si hago clase fantsma
 			game.addVisual(autoFantasma)
 			game.addVisual(jugador)
@@ -35,24 +40,29 @@ object mainGame {
 			game.addVisual(obstaculo2)
 			game.addVisual(obstaculo3)
 			game.addVisual(obstaculo4)
-			config.configurarTeclas()
+			//config.configurarTeclas()
 			config.configurarCaida()
 			config.configurarColiciones()
 	}
 	
 	method arrancar() {
+			jugador.position(game.at(0,1))
+			autoFantasma.position(game.at(0,2))
+			autoFantasma2.position(game.at(0,0))
 		if(game.hasVisual(pantallaDeInicio) ){
 			game.removeVisual(pantallaDeInicio)
-		game.sound("next.wav").play()
-		self.data()
-			//config.configPuntos()
+			game.sound("next.wav").play()		// hay q ver si tira error
+			self.data()
 		}
+			//config.configPuntos()
+		
 		
 	}
 	
-	method pressEnter(){
-		keyboard.enter().onPressDo({self.arrancar()})
+	method pressEnter(){	//	hacer q el enter se segun poscion para la imagen
+		keyboard.enter().onPressDo({recuadro.eleccion()})
 	}
+	
 	method gameOver(){
 		jugarOtra = true
 		game.removeVisual(jugador)
@@ -65,8 +75,8 @@ object mainGame {
 		game.addVisual(pantallaDeGameOver)
 		game.addVisual(puntaje)
 		game.say(puntaje,"Felicidades, tu puntaje fue :" + jugador.puntos())
+		musica.pausarMusica()		
 		self.seguirJugandoONo()
-		musica.pausarMusica()
 		
 	}
 	method seguirJugandoONo(){
@@ -75,11 +85,12 @@ object mainGame {
 	}
 	method rejugar(){
 		if(game.hasVisual(pantallaDeGameOver) ){
-			game.removeVisual(pantallaDeGameOver)
+			game.removeVisual(pantallaDeGameOver) //remover
 			game.removeVisual(puntaje)
 			game.clear()
 			//self.data()
 			self.iniciar()
+			//self.seleccion() //-----------------------
 			self.pressEnter()
 			config.resetearPuntos()
 			musica.reanudarMusica()
@@ -147,14 +158,23 @@ object config {
 			if (not autoFantasma2.estaEnElBorde2() ){
 				autoFantasma2.moverA(autoFantasma2.position().right(2))
 		}})
-		
+	// ---------------------- recuadro del menu ------------------------------
+		keyboard.left().onPressDo({ 
+			if ( not recuadro.estaEnElBorde()){ 
+				recuadro.moverA(recuadro.position().left(2))
+	
+			}
+		})
+		keyboard.right().onPressDo({
+			if (not recuadro.estaEnElBorde2() ){
+				recuadro.moverA(recuadro.position().right(2))
+		}})
 	}
 	
-	method configurarCaida(){
+	method configurarCaida(){		// el temas de las lineas es que en un punto descoordinan
 		
 		timer = 100
 		
-		// el temas de las lineas es que en un punto descoordinan
 		game.onTick(timer, "caida1", {obstaculo1.bajar() })
 		game.onTick(timer, "caida2", {obstaculo2.bajar() })
 		game.onTick(timer, "caida3", {obstaculo3.bajar() })
