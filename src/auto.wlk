@@ -34,14 +34,14 @@ object jugador{	// clase auto, tener 3 colores
 
 	}
 	  
-	method estaEnElBorde() = self.position().x()<= 1
+	method estaEnElBorde() = self.position().x()<= 1           //flags que nos avisa si el auto esta en el limite de pantalla
 	
 	method estaEnElBorde2() = self.position().x()>= 6
 	
-	method position() = position
+	method position() = position                             // mensaje de la posicion de actual del auto
 	
 	method moverA(nuevoLugar){
-		position = nuevoLugar
+		position = nuevoLugar       					// movimiento del jugador 
 	}
 	
 	 method ganarPuntos(cantidad){
