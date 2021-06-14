@@ -69,7 +69,7 @@ object mainGame {
 		
 		game.removeVisual(jugador)
 		game.addVisual(boom)
-		game.schedule(75, {game.removeVisual(autoFantasma)
+		game.schedule(100, {game.removeVisual(autoFantasma)
 		game.removeVisual(autoFantasma2) // ojo
 		game.removeVisual(obstaculo1)
 		game.removeVisual(obstaculo2)
@@ -81,17 +81,6 @@ object mainGame {
 		musica.pausarMusica()		
 		self.seguirJugandoONo()})
 		
-//	game.removeVisual(autoFantasma)
-//		game.removeVisual(autoFantasma2) // ojo
-//		game.removeVisual(obstaculo1)
-//		game.removeVisual(obstaculo2)
-//		game.removeVisual(obstaculo3)
-//		game.removeVisual(obstaculo4)
-	//	game.addVisual(pantallaDeGameOver)
-	//	game.addVisual(puntaje)
-	//	game.say(puntaje,"Felicidades, tu puntaje fue :" + jugador.puntos())
-	//	musica.pausarMusica()		
-	//	self.seguirJugandoONo()
 		
 	}
 	method seguirJugandoONo(){
