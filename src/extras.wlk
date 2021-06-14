@@ -14,7 +14,7 @@ object pantallaDeInicio{
 	
 	method position() = game.at(0,0)
 	
-	method image() = "menuInicial.jpg"
+	method image() = "menuInicial2.jpg"
 }
 object puntaje{
 	method position() = game.at(6,10)
