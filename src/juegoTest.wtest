@@ -5,7 +5,9 @@ import extras.*
 
 describe "Tests de Remisero Loco" {
 	
-	//var bache1 = new Obstaculos()
+	fixture {
+		mainGame.arrancar()
+	}
 	
 	test "El auto se elige de color naranja" {
 		jugador.eleccionAuto(naranja)
@@ -22,8 +24,9 @@ describe "Tests de Remisero Loco" {
 		assert.equals(gris, jugador.color())
 	}
 		
-	//test "colision con obstáculo" {
-		//bache1.chocoCon(remisero)
+	//test "el auto no se sale del borde" {
+		//assert.that(jugador.estaEnElBorde())
+		//keyboard.left()
 	//}
 	
 }
