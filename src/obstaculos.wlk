@@ -17,12 +17,12 @@ class Obstaculos {
 	}
 
 	method chocoCon(remisero){			//	coliciones con el jugador
+		game.addVisualIn(boom, jugador.position())
 		game.sound('Car_Explodes.wav')
 		mainGame.gameOver()
 		game.sound("lose.wav").play()
 		
 	}
-
 }
 
 class Bache inherits Obstaculos {
@@ -46,7 +46,6 @@ class AutoEnContraRapido inherits Obstaculos {
 		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),15)
 			jugador.ganarPuntos(20)
 		}
-	
 	}
 
 }
@@ -62,6 +61,3 @@ class AutoEnContraLento inherits Obstaculos {
 	}
 
 }
-
-
-

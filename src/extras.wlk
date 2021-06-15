@@ -55,7 +55,7 @@ object recuadro{
 object boom {						//da la sensacion de choque
 	
 	var property position 
-	
+
 	method image() = "explosion.png"
 	
 	method chocoCon(remisero){  //methodo que no hace nada solo para mantener el polimorfismo

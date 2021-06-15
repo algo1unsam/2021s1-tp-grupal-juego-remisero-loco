@@ -29,7 +29,7 @@ object mainGame {
 	
 	method data(){
 			game.removeVisual(recuadro)
-			game.addVisual(autoFantasma2) // ver si hago clase fantsma
+			game.addVisual(autoFantasma2) // ojo
 			game.addVisual(autoFantasma)
 			game.addVisual(jugador)
 			
@@ -49,7 +49,7 @@ object mainGame {
 	method arrancar() {
 			jugador.position(game.at(0,1))
 			autoFantasma.position(game.at(0,2))
-			autoFantasma2.position(game.at(0,0))
+			autoFantasma2.position(game.at(0,0))	// ojo
 		if(game.hasVisual(pantallaDeInicio) ){
 			game.removeVisual(pantallaDeInicio)
 			game.sound("next.wav").play()		// hay q ver si tira error
@@ -68,10 +68,9 @@ object mainGame {
 		jugarOtra = true
 		
 		game.removeVisual(jugador)
-		game.addVisualIn(boom, jugador.position())
+		game.removeVisual(autoFantasma)
+		game.removeVisual(autoFantasma2) 	// ojo
 		game.schedule(100, {
-			game.removeVisual(autoFantasma)
-			game.removeVisual(autoFantasma2) // ojo
 			game.removeVisual(obstaculo1)
 			game.removeVisual(obstaculo2)
 			game.removeVisual(obstaculo3)
@@ -109,7 +108,7 @@ object musica{
 	const cancion = game.sound("mainMusic.wav")
 
 	method play() {
-		 cancion.volume(0.3)
+		 cancion.volume(0.2)
 		 cancion.play()
 		 }
 
@@ -153,7 +152,7 @@ object config {
 			if (not autoFantasma.estaEnElBorde2() ){
 				autoFantasma.moverA(autoFantasma.position().right(2))
 		}})
-	//------------------------segundo coche fantasma------------------------
+	//------------------------segundo coche fantasma------------------------ OJO
 		keyboard.left().onPressDo({ 
 			if ( not autoFantasma2.estaEnElBorde()){ 
 				autoFantasma2.moverA(autoFantasma2.position().left(2))
@@ -164,7 +163,7 @@ object config {
 			if (not autoFantasma2.estaEnElBorde2() ){
 				autoFantasma2.moverA(autoFantasma2.position().right(2))
 		}})
-	// ---------------------- recuadro del menu ------------------------------
+	 //---------------------- recuadro del menu ------------------------------
 		keyboard.left().onPressDo({ 
 			if ( not recuadro.estaEnElBorde()){ 
 				recuadro.moverA(recuadro.position().left(3))
@@ -203,7 +202,7 @@ object config {
 	}
 	
 	method configurarColiciones(){
-		
+		 
 		game.onCollideDo(autoFantasma, {algo => algo.chocoCon(jugador)})
 		game.onCollideDo(jugador, {algo => algo.chocoCon(jugador)})
 		game.onCollideDo(autoFantasma2, {algo => algo.chocoCon(jugador)})	// ojo
