@@ -80,14 +80,14 @@ object gris{
 
 object naranja{
 	method imagen() = "autoNaranja.png"
-	method doblarIzq() = "autoNaranja_Izq.png" //"autoAzul_Izq.png"
-	method doblarDer() = "autoNaranja_Der.png" //"autoAzul_Der.png"
+	method doblarIzq() = "autoNaranja_Izq.png" 
+	method doblarDer() = "autoNaranja_Der.png" 
 }
 
 object verde{
 	method imagen() = "autoVerde.png"
-	method doblarIzq() = "autoVerde_Izq.png" //"autoVerde_Izq.png"
-	method doblarDer() = "autoVerde_Der.png" //"autoVerde_Der.png"
+	method doblarIzq() = "autoVerde_Izq.png" 
+	method doblarDer() = "autoVerde_Der.png" 
 }
 
 // --------------------------------------------------
