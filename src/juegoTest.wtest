@@ -32,5 +32,17 @@ describe "Tests de Remisero Loco" {
 		keyboard.left()
 		assert.equals(0, jugador.position().x())
 	}
-	
+
+	test "sistema de puntos "{
+		assert.equals(0,jugador.puntos())
+		obstaculo1.position(game.at(4,0))
+		obstaculo1.bajar()
+		obstaculo2.position(game.at(4,0))
+		obstaculo2.bajar()
+		obstaculo3.position(game.at(4,0))
+		obstaculo3.bajar()
+		
+		assert.equals(60,jugador.puntos())
+		
+	}	
 }
