@@ -68,7 +68,7 @@ object mainGame {
 		jugarOtra = true
 		
 		game.removeVisual(jugador)
-		game.addVisual(boom)
+		game.addVisualIn(boom, jugador.position())
 		game.schedule(100, {game.removeVisual(autoFantasma)
 		game.removeVisual(autoFantasma2) // ojo
 		game.removeVisual(obstaculo1)

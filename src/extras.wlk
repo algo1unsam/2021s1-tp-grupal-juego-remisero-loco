@@ -54,7 +54,7 @@ object recuadro{
 
 object boom {						//da la sensacion de choque
 	
-	var property position = jugador.position()
+	var property position 
 	
 	method image() = "explosion.png"
 	
