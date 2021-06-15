@@ -2,6 +2,7 @@ import auto.*
 import obstaculos.*
 import config.*
 import extras.*
+import wollok.game.*
 
 describe "Tests de Remisero Loco" {
 	
@@ -24,9 +25,12 @@ describe "Tests de Remisero Loco" {
 		assert.equals(gris, jugador.color())
 	}
 		
-	//test "el auto no se sale del borde" {
-		//assert.that(jugador.estaEnElBorde())
-		//keyboard.left()
-	//}
+	test "el auto no se sale del borde" {
+		assert.equals(0, jugador.position().x())
+		keyboard.left()
+		keyboard.left()
+		keyboard.left()
+		assert.equals(0, jugador.position().x())
+	}
 	
 }
