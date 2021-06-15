@@ -1,0 +1,23 @@
+import auto.*
+import obstaculos.*
+import config.*
+import extras.*
+
+describe "Tests de Remisero Loco" {
+	
+	test "El auto se elige de color naranja" {
+		jugador.eleccionAuto(naranja)
+		assert.equals(naranja, jugador.color())
+	}
+	
+	test "El auto se elige de color verde" {
+		jugador.eleccionAuto(verde)
+		assert.equals(verde, jugador.color())
+	}
+	
+	test "El auto se elige de color gris" {
+		jugador.eleccionAuto(gris)
+		assert.equals(gris, jugador.color())
+	}
+		
+}

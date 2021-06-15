@@ -10,7 +10,7 @@ object jugador{	// clase auto, tener 3 colores
 	var derecha = false
 	var izquierda = false
 	
-	var color
+	var property color
 
 	// var colorAuto
 	method eleccionAuto(tipo){
