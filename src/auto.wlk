@@ -51,9 +51,22 @@ object jugador{	// clase auto, tener 3 colores
 	 	puntos = 0
 	 }
 
+	method right(){
+		if (not self.estaEnElBorde2() ){
+			self.moverA(self.position().right(2))
+			}
+	}
+	
+	method left(){
+		if (not self.estaEnElBorde() ){
+			self.moverA(self.position().left(2))
+			}
+	}
+
+
 	 method doblar() {	// veo si el auto esta en alguna posicion donde debe doblar
 	 	return doblar.any{posicion => game.at(posicion,1) == self.position()}
-	 	}
+	}
 
 // ------- bandera para saber que imagen poner ------	
 	method izq(){
@@ -89,9 +102,10 @@ object verde{
 }
 
 // --- La imagen del auto ocupa 3 posiciones y al chocar parece que atraviesa ---
-// Estos objetos son para darle 'relismo' al chocar
-object autoFantasma{								//
-	var property position = game.at(0,2)
+// son para darle 'realismo' al chocar
+
+class AutoFantasma{
+	var property position 
 	
 	method image() = 'autoFantasma.png'
 	
@@ -103,18 +117,3 @@ object autoFantasma{								//
 		position = nuevoLugar
 	 }
 }
-
-object autoFantasma2{
-	var property position = game.at(0,0)
-	
-	method image() = 'autoFantasma.png'
-	
-	method estaEnElBorde() = self.position().x()<= 1
-	
-	method estaEnElBorde2() = self.position().x()>= 6
-	
-	method moverA(nuevoLugar){
-		position = nuevoLugar
-	 }
-}
-

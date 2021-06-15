@@ -3,7 +3,7 @@ import extras.*
 import auto.*
 import config.*
 
-class Obstaculos {
+class Obstaculo {
 	var position
 	const image
 	method image() = image
@@ -23,41 +23,14 @@ class Obstaculos {
 		game.sound("lose.wav").play()
 		
 	}
-}
-
-class Bache inherits Obstaculos {
 	
 	 method bajar(){
 		if( not self.tocoElSuelo() ){
 			position = position.down(1)
 			// ramdonUpTo()
-		}else {position =game.at((new Range(start = 0, end = 8,step = 2).anyOne()),25) // 'random'
+		}else{position =game.at((new Range(start = 0, end = 8,step = 2).anyOne()),15) // 'random'
 			jugador.ganarPuntos(20)
-		}
-	}
-
-}
-
-class AutoEnContraRapido inherits Obstaculos {
-	
-	method bajar(){
-		if( not self.tocoElSuelo() ){
-			position = position.down(1)
-		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),15)
-			jugador.ganarPuntos(20)
-		}
-	}
-
-}
-
-class AutoEnContraLento inherits Obstaculos {
-	
-	method bajar(){
-		if( not self.tocoElSuelo() ){
-			position = position.down(1)
-		}else {position =game.at((new Range(start = 0, end = 8,step = 2 ).anyOne()),20)
-			jugador.ganarPuntos(20)
-		}
-	}
+			}
+	}	
 
 }

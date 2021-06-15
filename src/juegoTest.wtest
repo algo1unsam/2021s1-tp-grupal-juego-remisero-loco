@@ -8,6 +8,7 @@ describe "Tests de Remisero Loco" {
 	
 	fixture {
 		mainGame.arrancar()
+		config.configurarTeclas()
 	}
 	
 	test "El auto se elige de color naranja" {
@@ -25,12 +26,23 @@ describe "Tests de Remisero Loco" {
 		assert.equals(gris, jugador.color())
 	}
 		
-	test "el auto no se sale del borde" {
+	test "el auto no se sale del borde izquierdo" {
 		assert.equals(0, jugador.position().x())
-		keyboard.left()
-		keyboard.left()
-		keyboard.left()
+		jugador.left()
+		jugador.left()
+		jugador.left()
 		assert.equals(0, jugador.position().x())
+	}
+	test 'el auto no se sale del borde derecho'{
+		assert.equals(0, jugador.position().x())
+		
+		jugador.right()
+		jugador.right()
+		jugador.right()
+		jugador.right()
+		jugador.right()
+
+		assert.equals(6, jugador.position().x())
 	}
 
 	test "sistema de puntos "{

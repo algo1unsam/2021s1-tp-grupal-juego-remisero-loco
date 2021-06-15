@@ -3,10 +3,13 @@ import obstaculos.*
 import extras.*
 import wollok.game.*
 
-const obstaculo1 = new Bache(image = "bache.png",position =game.at(0,12))
-const obstaculo2 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(4,12))
-const obstaculo3 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(2,12))
-const obstaculo4 = new AutoEnContraRapido(image = "autoEnContra.png",position =game.at(4,12))
+const obstaculo1 = new Obstaculo(image = "bache.png",position =game.at(0,27))
+const obstaculo2 = new Obstaculo(image = "autoEnContra.png",position =game.at(4,15))
+const obstaculo3 = new Obstaculo(image = "autoEnContra.png",position =game.at(2,23))
+const obstaculo4 = new Obstaculo(image = "autoEnContra.png",position =game.at(6,18))
+
+const autoFantasma = new AutoFantasma(position = game.at(0,2))
+const autoFantasma2 = new AutoFantasma(position = game.at(0,0))
 
 object mainGame {
 	var jugarOtra = false
@@ -32,7 +35,7 @@ object mainGame {
 			game.addVisual(autoFantasma2) // ojo
 			game.addVisual(autoFantasma)
 			game.addVisual(jugador)
-			
+		 
 			obstaculo1.position(game.at(0,27))
 			obstaculo2.position(game.at(4,15))
 			obstaculo3.position(game.at(2,23))
@@ -43,7 +46,7 @@ object mainGame {
 			game.addVisual(obstaculo4)
 			//config.configurarTeclas()
 			config.configurarCaida()
-			config.configurarColiciones()
+			config.configurarColisiones()
 	}
 	
 	method arrancar() {
@@ -142,7 +145,7 @@ object config {
 		}})
 	
 	//------------------------auto fantasma-------------------------------	
-		keyboard.left().onPressDo({ 
+	 	keyboard.left().onPressDo({ 
 			if ( not autoFantasma.estaEnElBorde()){ 
 				autoFantasma.moverA(autoFantasma.position().left(2))
 	
@@ -201,7 +204,7 @@ object config {
 		
 	}
 	
-	method configurarColiciones(){
+	method configurarColisiones(){
 		 
 		game.onCollideDo(autoFantasma, {algo => algo.chocoCon(jugador)})
 		game.onCollideDo(jugador, {algo => algo.chocoCon(jugador)})
