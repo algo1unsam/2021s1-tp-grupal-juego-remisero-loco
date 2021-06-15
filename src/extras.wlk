@@ -38,7 +38,7 @@ object recuadro{
 	method eleccion(){
 		if(game.hasVisual(pantallaDeInicio) ){
 
-			if (self.position() == game.at(0.95,7.5)){
+			if (self.position() == game.at(0.95,7.5)){		//al apretar ENTER, segun su posicion, elige el color
 				jugador.eleccionAuto(naranja)
 				mainGame.arrancar()}
 			if (self.position() == game.at(3.95,7.5)){

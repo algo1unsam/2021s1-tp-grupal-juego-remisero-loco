@@ -109,7 +109,7 @@ object musica{
 	const cancion = game.sound("mainMusic.wav")
 
 	method play() {
-		 cancion.volume(0.5)
+		 cancion.volume(0.3)
 		 cancion.play()
 		 }
 

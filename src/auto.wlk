@@ -21,12 +21,10 @@ object jugador{	// clase auto, tener 3 colores
 		if (izquierda and self.doblar()){		// si esta en la posicion de izq, pongo imagen doblando
 			self.moverA(position.left(0.5))
 			return color.doblarIzq()
-			// return color.doblarIzq()
 			
 		}if(derecha and self.doblar()){
 			self.moverA(position.right(0.5))
 			return color.doblarDer()
-				//return color.doblarDer()
 		}else{
 			self.nulo()
 			return color.imagen()
@@ -90,8 +88,9 @@ object verde{
 	method doblarDer() = "autoVerde_Der.png" 
 }
 
-// --------------------------------------------------
-object autoFantasma{
+// --- La imagen del auto ocupa 3 posiciones y al chocar parece que atraviesa ---
+// Estos objetos son para darle 'relismo' al chocar
+object autoFantasma{								//
 	var property position = game.at(0,2)
 	
 	method image() = 'autoFantasma.png'
