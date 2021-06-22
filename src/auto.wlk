@@ -51,18 +51,6 @@ object jugador{	// clase auto, tener 3 colores
 	 	puntos = 0
 	 }
 
-	method right(){
-		if (not self.estaEnElBorde2() ){
-			self.moverA(self.position().right(2))
-			}
-	}
-	
-	method left(){
-		if (not self.estaEnElBorde() ){
-			self.moverA(self.position().left(2))
-			}
-	}
-
 
 	 method doblar() {	// veo si el auto esta en alguna posicion donde debe doblar
 	 	return doblar.any{posicion => game.at(posicion,1) == self.position()}
